@@ -3,6 +3,8 @@ package com.thecheezery.model.data
 import com.thecheezery.model.domain.Category
 import com.thecheezery.model.domain.Product
 
+data class SeedCombo(val name: String, val price: Double, val productIds: List<String>)
+
 object MenuData {
     val products = mapOf(
         Category.HOT_DRINKS to listOf(
@@ -33,10 +35,11 @@ object MenuData {
             Product("cupcake", "Strawberry cupcake", "Cupcake de vainilla y fresa.", 3.5),
             Product("waffle", "Belgian waffle", "Waffle con fruta y crema.", 5.0),
         ),
-        Category.COMBOS to listOf(
-            Product("coffeecombo", "Coffee & brownie", "Café caliente con brownie.", 6.0),
-            Product("lunchcombo", "Lunch combo", "Sándwich, papas y bebida fría.", 8.0),
-            Product("sweetcombo", "Sweet break", "Cupcake con latte a elegir.", 6.5),
-        ),
+    )
+
+    val combos = listOf(
+        SeedCombo("Coffee & brownie", 6.0, listOf("espresso", "brownie")),
+        SeedCombo("Lunch combo", 8.0, listOf("club", "lemonade")),
+        SeedCombo("Sweet break", 6.5, listOf("cupcake", "latte")),
     )
 }
