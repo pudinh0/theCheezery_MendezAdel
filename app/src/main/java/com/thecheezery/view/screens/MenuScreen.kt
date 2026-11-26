@@ -25,7 +25,7 @@ import com.thecheezery.ui.theme.Purple_grey
 import com.thecheezery.view.components.*
 
 @Composable
-fun MenuScreen(onCategory: (Category) -> Unit, onCart: () -> Unit, onAddProduct: () -> Unit) {
+fun MenuScreen(onCategory: (Category) -> Unit, onCart: () -> Unit, onAddProduct: () -> Unit, onAddCombo: () -> Unit) {
     Column(Modifier.fillMaxSize().padding(horizontal = 24.dp, vertical = 18.dp)) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
             CircleAction("cart", onCart, tint = Pinky, size = 48)
@@ -35,7 +35,7 @@ fun MenuScreen(onCategory: (Category) -> Unit, onCart: () -> Unit, onAddProduct:
         Text("Café, antojos y algo dulce", color = Purple_grey, fontSize = 13.sp, modifier = Modifier.align(Alignment.CenterHorizontally))
         Spacer(Modifier.height(30.dp))
         val categories = listOf(Category.HOT_DRINKS, Category.COLD_DRINKS, Category.SALTIES, Category.SWEETS, Category.COMBOS)
-        val tiles = categories.map { it.title to { onCategory(it) } } + ("Agregar producto" to onAddProduct)
+        val tiles = categories.map { it.title to { onCategory(it) } } + ("Agregar producto" to onAddProduct) + ("Agregar combo" to onAddCombo)
         tiles.chunked(2).forEach { row ->
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 row.forEach { (title, action) ->

@@ -20,3 +20,6 @@ object Cart
 
 @Serializable
 object AddProduct
+
+@Serializable
+object AddCombo
